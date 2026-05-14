@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-05-13_
+_Last updated: 2026-05-14_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -24,9 +24,9 @@ rights over it.
 - **Voice recordings** (optional, for AI voice memo) — sent transiently
   to Google's Gemini API for transcription, then discarded. Not stored
   by us.
-- **AI chat messages** (optional, for AI advisor) — sent to OpenRouter
-  for inference. Not stored by us beyond the local conversation history
-  on your device.
+- **AI chat messages** (optional, for AI advisor) — sent transiently
+  to Google's Gemini API for inference. Not stored by us beyond the
+  local conversation history on your device.
 
 ## What we do NOT collect
 
