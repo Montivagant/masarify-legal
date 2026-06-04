@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-06-04_
+_Last updated: 2026-06-05_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -34,7 +34,7 @@ rights over it.
 - We do not track your location passively or in the background — only
   when you explicitly attach a location to a transaction or wallet
   (see Permissions).
-- We do not use third-party analytics or advertising SDKs.
+- We do not use advertising SDKs, ad networks, or ad trackers.
 - We do not sell, share, or rent your data.
 
 ## Permissions
@@ -48,6 +48,21 @@ rights over it.
 
 All permissions are optional. The core finance-tracking features work
 fully offline.
+
+## Analytics & diagnostics (optional, OFF by default)
+
+Analytics and crash diagnostics are **off by default**. Only if you explicitly
+opt in (in Settings → Privacy) do we collect **anonymous, masked** usage
+analytics and crash reports to improve the app. We use two processors:
+**PostHog** (product analytics, hosted on its **EU** infrastructure) and
+**Sentry** (crash and error reporting, **EU** region). We do not collect
+personal identifiers and do not enable PII enrichment. Financial amounts,
+transaction details, notes, and AI chat content are never sent — analytics is
+event-level only (no screen recording), and sensitive fields are filtered out
+before any data leaves your device. You can withdraw consent at any time in
+Settings → Privacy, which stops collection immediately; clearing app data also
+resets consent to off. This processing is consent-based and the EU transfer is
+disclosed here in line with Egypt's PDPL (Law 151 of 2020).
 
 ## Subscriptions
 
