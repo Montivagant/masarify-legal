@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-05-14_
+_Last updated: 2026-06-04_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -63,8 +63,10 @@ page at any time.
 
 ## Children's privacy
 
-Masarify is not directed at users under 13. We do not knowingly collect
-data from children.
+Masarify is intended for users aged 18 and older. Because its AI features
+use Google's Gemini API — which requires users to be 18+ — the app is not
+directed at, and must not be used by, anyone under 18. We do not knowingly
+collect data from minors.
 
 ## Changes to this policy
 
