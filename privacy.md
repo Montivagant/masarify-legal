@@ -27,6 +27,11 @@ rights over it.
 - **AI chat messages** (optional, for AI advisor) — sent transiently
   to Google's Gemini API for inference. Not stored by us beyond the
   local conversation history on your device.
+- **Optional cloud-reminder data** — if you enable Cloud reminders, an
+  anonymous device notification token plus your reminder time, timezone,
+  and app language are sent to Google's Firebase Cloud Messaging to
+  deliver reminders. No financial data is included. Off by default;
+  removable at any time.
 
 ## What we do NOT collect
 
@@ -63,6 +68,26 @@ before any data leaves your device. You can withdraw consent at any time in
 Settings → Privacy, which stops collection immediately; clearing app data also
 resets consent to off. This processing is consent-based and the EU transfer is
 disclosed here in line with Egypt's PDPL (Law 151 of 2020).
+
+## Cloud reminders (optional, OFF by default)
+
+Masarify can remind you about your spending using on-device notifications,
+which work fully offline. If you additionally turn on **Cloud reminders**
+(Settings → Reminders), we register your device with **Google's Firebase
+Cloud Messaging (FCM)** so reminders can be delivered even when the app is
+closed. When enabled, a small amount of non-financial data is sent to and
+processed by Google (Firebase) on servers **outside Egypt**: an **anonymous
+device notification token** (a pseudonymous identifier for your app
+installation, not tied to your name or account), your chosen **reminder
+time**, your **timezone**, and your **app language**. We never send your
+financial data — transactions, amounts, wallets, budgets, notes, and AI
+content are never included in reminder messages or their metadata. You can
+turn Cloud reminders off at any time; doing so deletes the token from your
+device and removes it from our records the next time your device is online,
+which stops the transfer. Uninstalling the app, or prolonged inactivity,
+also invalidates the token. This processing is based on your explicit
+consent, and this cross-border transfer to Google/Firebase is disclosed
+here in line with Egypt's Personal Data Protection Law (Law 151 of 2020).
 
 ## Subscriptions
 
