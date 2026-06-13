@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-06-05_
+_Last updated: 2026-06-13_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -143,10 +143,27 @@ is handled by Google Play. We do not see your payment details.
 
 ## Data retention and deletion
 
-Your data lives on your device. To delete it, uninstall the app or use
-the in-app "Reset" option in Settings. If you used Drive backup, you
-can delete the backup from your Google Drive's "App Data" management
-page at any time.
+**Your on-device data.** Your finances live on your device. To delete
+everything, uninstall the app or use the in-app **Clear all data** option
+(Settings). If you used Drive backup, you can delete that backup from your
+Google Drive's "App Data" management page at any time.
+
+**Deleting your account.** If you connected a Google account (see
+"Account & sign-in" above), you can permanently delete it and its
+associated data in either of two ways:
+
+- **In the app:** Settings → Account → Delete account. This immediately and
+  permanently deletes the account identity held by Firebase (your Google
+  email, display name, and account identifier) and the associated
+  cloud-reminder record. Your on-device finances are not affected.
+- **By request, no app needed:** email omarwalidghazal@gmail.com from the
+  Google address you signed in with, and we will delete your account and
+  any associated data within 30 days.
+
+After deletion we keep no account data, aside from copies Google/Firebase
+may hold transiently in their own backups, which expire on Google's
+standard schedule. In-app feedback you have sent can likewise be deleted on
+request to the same address.
 
 ## Children's privacy
 
