@@ -26,12 +26,21 @@ rights over it.
   by us.
 - **AI chat messages** (optional, for AI advisor) — sent transiently
   to Google's Gemini API for inference. Not stored by us beyond the
-  local conversation history on your device.
+  local conversation history on your device. If you fill in the optional
+  AI personalization profile (Settings), it is stored **on your device**
+  and only its contents that accompany an AI request are sent to Gemini,
+  exactly like the rest of your AI message.
 - **Optional cloud-reminder data** — if you enable Cloud reminders, an
   anonymous device notification token plus your reminder time, timezone,
   and app language are sent to Google's Firebase Cloud Messaging to
   deliver reminders. No financial data is included. Off by default;
   removable at any time.
+- **Optional account identity** — if you connect your Google account
+  (Settings → Account), your Google email and basic profile (display
+  name) are processed by Google's Firebase Authentication to establish a
+  secure account identity, and a pseudonymous account identifier is
+  created. No financial data is attached to this account. Off by default;
+  you can sign out or permanently delete the account at any time.
 
 ## What we do NOT collect
 
@@ -88,6 +97,44 @@ which stops the transfer. Uninstalling the app, or prolonged inactivity,
 also invalidates the token. This processing is based on your explicit
 consent, and this cross-border transfer to Google/Firebase is disclosed
 here in line with Egypt's Personal Data Protection Law (Law 151 of 2020).
+
+## In-app feedback (optional)
+
+You can send us feedback from inside the app (Settings → Send feedback, or
+the home-screen invitation). When you choose to submit, the following is
+sent to and stored on **Google's Firebase (Firestore)** on servers
+**outside Egypt**: your **message text**, the **category** you picked
+(bug/idea/other), your **app version**, **platform** (e.g. android), the
+**app language**, and — only if you type it — an **optional contact
+email**. We never attach your financial data, and submissions are not
+linked to your identity unless you include your email. Feedback is used
+solely to fix issues and improve the app, is never sold or shared, and you
+can request deletion of any submission at any time via the contact email
+below. Sending feedback is always your explicit action — nothing is sent
+automatically.
+
+## Account & sign-in (optional, OFF by default)
+
+Masarify works fully without any account — by default you use the app
+anonymously and all of your data stays on your device. You may optionally
+**connect your Google account** (Settings → Account). When you do, we use
+**Google's Firebase Authentication** to establish a secure identity for
+your app installation. The data involved is limited to your **Google email
+address** and **basic profile (display name)**, which are processed by
+Google (Firebase) to authenticate you; a pseudonymous **account
+identifier** is also created. We do **not** attach your transactions,
+amounts, wallets, budgets, notes, or any other financial data to this
+account — your finances never leave your device because you signed in.
+
+Signing in is purely additive: it gives you a stable identity (for example
+to support future optional cloud sync) and is required for none of the
+app's features. You can **sign out** at any time, or **permanently delete
+your account** (Settings → Account → Delete account), which removes the
+Firebase identity and any associated cloud-reminder record. This identity
+sign-in is separate from the optional Google Drive backup sign-in described
+above. This processing is based on your explicit consent, and the transfer
+to Google/Firebase (on servers outside Egypt) is disclosed here in line
+with Egypt's Personal Data Protection Law (Law 151 of 2020).
 
 ## Subscriptions
 
