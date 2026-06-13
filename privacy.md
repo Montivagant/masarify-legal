@@ -70,10 +70,18 @@ opt in (in Settings → Privacy) do we collect **anonymous, masked** usage
 analytics and crash reports to improve the app. We use two processors:
 **PostHog** (product analytics, hosted on its **EU** infrastructure) and
 **Sentry** (crash and error reporting, **EU** region). We do not collect
-personal identifiers and do not enable PII enrichment. Financial amounts,
-transaction details, notes, and AI chat content are never sent — analytics is
-event-level only (no screen recording), and sensitive fields are filtered out
-before any data leaves your device. You can withdraw consent at any time in
+personal identifiers and do not enable PII enrichment. Your exact financial
+amounts, transaction details, balances, wallets, notes, and AI chat content are
+**never** sent — analytics is event-level only (no screen recording), and
+sensitive fields are filtered out before any data leaves your device.
+
+If you have filled in your optional profile (Settings → Profile), we also attach
+a few **coarse, anonymized** attributes to your anonymous analytics profile so we
+can understand who uses Masarify: an **age range** (never your exact age), an
+**income range** (a broad bracket — never your exact income), your **gender**,
+and your auto-derived **spending persona**. These values are bucketed so they
+can't identify you, are never linked to your name or any identifier, and are
+only sent while analytics is enabled. You can withdraw consent at any time in
 Settings → Privacy, which stops collection immediately; clearing app data also
 resets consent to off. This processing is consent-based and the EU transfer is
 disclosed here in line with Egypt's PDPL (Law 151 of 2020).
