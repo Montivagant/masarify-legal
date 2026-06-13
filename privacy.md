@@ -96,9 +96,12 @@ closed. When enabled, a small amount of non-financial data is sent to and
 processed by Google (Firebase) on servers **outside Egypt**: an **anonymous
 device notification token** (a pseudonymous identifier for your app
 installation, not tied to your name or account), your chosen **reminder
-time**, your **timezone**, and your **app language**. We never send your
-financial data — transactions, amounts, wallets, budgets, notes, and AI
-content are never included in reminder messages or their metadata. You can
+schedule** — the daily-reminder time and the **dates** of any bill or
+subscription reminders you've set — your **timezone**, and your **app
+language**. We never send your financial data — transactions, amounts,
+wallets, budgets, notes, bill names, and AI content are never included in
+reminder messages or their metadata; a bill push only says a reminder is due.
+You can
 turn Cloud reminders off at any time; doing so deletes the token from your
 device and removes it from our records the next time your device is online,
 which stops the transfer. Uninstalling the app, or prolonged inactivity,
