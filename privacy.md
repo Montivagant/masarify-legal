@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-06-13_
+_Last updated: 2026-06-14_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -67,13 +67,19 @@ fully offline.
 
 Analytics and crash diagnostics are **off by default**. Only if you explicitly
 opt in (in Settings → Privacy) do we collect **anonymous, masked** usage
-analytics and crash reports to improve the app. We use two processors:
-**PostHog** (product analytics, hosted on its **EU** infrastructure) and
-**Sentry** (crash and error reporting, **EU** region). We do not collect
-personal identifiers and do not enable PII enrichment. Your exact financial
-amounts, transaction details, balances, wallets, notes, and AI chat content are
-**never** sent — analytics is event-level only (no screen recording), and
-sensitive fields are filtered out before any data leaves your device.
+analytics and crash reports to improve the app. We use these processors:
+**PostHog** (product analytics and **masked session replay**, hosted on its
+**EU** infrastructure), **Sentry** (crash and error reporting, **EU** region),
+and **Google Firebase Analytics and Crashlytics** (usage analytics and crash
+diagnostics, processed by Google on servers **outside Egypt**, including the
+**United States**). We do not collect personal identifiers, do not enable PII
+enrichment, and do not assign an advertising ID or use ad personalization. Your
+exact financial amounts, transaction details, balances, wallets, notes, and AI
+chat content are **never** sent — sensitive fields are filtered out before any
+data leaves your device. The optional **session replay** is fully **masked**:
+every piece of text and every image is redacted on your device before a frame is
+ever captured, so it records only anonymized layout and interactions (to spot
+usability issues) — never your actual content or numbers.
 
 If you have filled in your optional profile (Settings → Profile), we also attach
 a few **coarse, anonymized** attributes to your anonymous analytics profile so we
@@ -83,8 +89,10 @@ and your auto-derived **spending persona**. These values are bucketed so they
 can't identify you, are never linked to your name or any identifier, and are
 only sent while analytics is enabled. You can withdraw consent at any time in
 Settings → Privacy, which stops collection immediately; clearing app data also
-resets consent to off. This processing is consent-based and the EU transfer is
-disclosed here in line with Egypt's PDPL (Law 151 of 2020).
+resets consent to off. This processing is consent-based, and these cross-border
+transfers — to PostHog and Sentry in the **EU**, and to Google/Firebase
+**outside Egypt (including the US)** — are disclosed here in line with Egypt's
+PDPL (Law 151 of 2020).
 
 ## Cloud reminders (optional, OFF by default)
 
