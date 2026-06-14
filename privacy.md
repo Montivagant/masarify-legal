@@ -45,9 +45,11 @@ rights over it.
 ## What we do NOT collect
 
 - We do not collect personal identifiers (name, phone, address).
-- We do not track your location passively or in the background — only
-  when you explicitly attach a location to a transaction or wallet
-  (see Permissions).
+- We do not track your device's precise (GPS) location passively or in
+  the background — only when you explicitly attach a location to a
+  transaction or wallet (see Permissions). If you opt into analytics, our
+  processor derives only an **approximate** country/region from your IP
+  address — see Analytics & diagnostics.
 - We do not use advertising SDKs, ad networks, or ad trackers.
 - We do not sell, share, or rent your data.
 
@@ -84,8 +86,26 @@ usability issues) — never your actual content or numbers.
 If you have filled in your optional profile (Settings → Profile), we also attach
 a few **coarse, anonymized** attributes to your anonymous analytics profile so we
 can understand who uses Masarify: an **age range** (never your exact age), an
-**income range** (a broad bracket — never your exact income), your **gender**,
-and your auto-derived **spending persona**. These values are bucketed so they
+**income range** (a broad bracket — never your exact income, plus a
+representative bracket value so we can gauge an *approximate* average), your
+**gender**, and your auto-derived **spending persona**. While analytics is on we
+likewise attach a few **coarse, anonymized usage** signals: your **app language**
+and **currency** (so we understand which markets use Masarify) and whether you're
+on the **free or Pro** plan; a **spending range** (a broad bracket of your
+monthly spending, plus a representative bracket value — never your exact totals)
+and your **most-used spending category** (only for the app's built-in categories
+— the names of any categories you create yourself are never sent); **how actively
+you use the app** (for example how many wallets, goals, or custom categories you
+keep and a broad band of how many transactions you log) and **budget usage** (how
+many budgets you keep and their periods — never their names or amounts); a few
+**coarse financial-behavior bands** (for example whether you tend to save, break
+even, or overspend, and a needs-versus-wants spending mix — always broad bands,
+never exact figures); your **AI-feature usage** band; and **which optional
+features you've enabled** (such as app lock, cloud reminders, or backup — never
+the protected data behind them). Our analytics processor (PostHog) also derives
+an **approximate location** — your **country/region**, from your device's **IP
+address** (never a precise or GPS position) — so we can understand which regions
+use Masarify. These values are bucketed so they
 can't identify you, are never linked to your name or any identifier, and are
 only sent while analytics is enabled. You can withdraw consent at any time in
 Settings → Privacy, which stops collection immediately; clearing app data also
