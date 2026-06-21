@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-06-14_
+_Last updated: 2026-06-21_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -18,9 +18,14 @@ rights over it.
   recurring rules, categories, and any notes you add. This data is stored
   locally on your device in an encrypted SQLite database.
 - **Optional Google Drive backup data** — if you connect your Google
-  account, an encrypted backup of your financial data is stored in your
-  own Drive's hidden `appDataFolder`. Only you can access it. We never
-  read its contents.
+  account, a copy of your financial data, **encrypted on your device**
+  (AES-256), is stored in your own Drive's hidden `appDataFolder` — a space
+  private to Masarify that other apps and we ourselves never read. The
+  encryption key is kept in that same private folder alongside the backup, so
+  the data is **recoverable through your own Google account rather than
+  zero-knowledge**: Google, as the provider that hosts your Drive, could in
+  principle access it, while Masarify and other apps cannot. You can delete
+  the backup at any time from your Drive's "App Data" management page.
 - **Voice recordings** (optional, for AI voice memo) — sent transiently
   to Google's Gemini API for transcription, then discarded. Not stored
   by us.
