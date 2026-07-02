@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-06-21_
+_Last updated: 2026-07-02_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -183,7 +183,8 @@ with Egypt's Personal Data Protection Law (Law 151 of 2020).
 ## Subscriptions
 
 Masarify offers a Pro subscription unlocking advanced features. Billing
-is handled by Google Play. We do not see your payment details.
+is handled by Google Play (on Android) or the Apple App Store (on iOS).
+We do not see your payment details.
 
 ## Data retention and deletion
 

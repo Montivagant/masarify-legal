@@ -14,7 +14,7 @@ Welcome to Masarify (مصاريفي) ("Masarify", the "App", or the "Service"), 
 
 Please read these Terms carefully. By downloading, installing, accessing, or using Masarify, you confirm that you have read, understood, and agree to be bound by these Terms and by our Privacy Policy, which is incorporated into these Terms by reference. **If you do not agree, do not download or use the App.**
 
-> **Note on language:** This document is provided in English. An Arabic translation is planned and will be published as a follow-up. Until an official Arabic version is published, the English-language version of these Terms controls in case of any conflict.
+> **Note on language:** This document is provided in English, with an Arabic translation available within the app for convenience. **In case of any conflict between the two, the English-language version of these Terms controls.**
 
 ## 1. Acceptance and Binding Agreement
 
