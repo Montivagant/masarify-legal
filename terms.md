@@ -8,7 +8,7 @@ permalink: /terms.html
 
 _Effective date: 4 June 2026_
 
-_Last updated: 4 June 2026_
+_Last updated: 6 July 2026_
 
 Welcome to Masarify (مصاريفي) ("Masarify", the "App", or the "Service"), an offline-first personal finance tracker provided by Omar Walid Ghazal, an independent sole developer ("we", "us", or "our"). These Terms of Use ("Terms") are a binding legal agreement between you and us governing your download, access, and use of the App.
 
@@ -111,7 +111,8 @@ You agree not to:
 The App's optional online features rely on Third-Party Services, each governed by its own terms and privacy policy:
 
 - **Google Gemini API** — AI Insights and Voice Input transcription.
-- **Google Sign-In and Google Drive** — optional encrypted Backup (see Section 12).
+- **Google Sign-In and Google Drive** — optional account sign-in and encrypted Backup (see Section 12).
+- **Sign in with Apple** — optional account sign-in on iOS.
 - **Google Play / Apple App Store** — Subscription billing.
 - **Logo.dev** — merchant logos.
 

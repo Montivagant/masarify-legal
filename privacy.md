@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-07-02_
+_Last updated: 2026-07-06_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -31,19 +31,30 @@ rights over it.
   by us.
 - **AI chat messages** (optional, for AI advisor) — sent transiently
   to Google's Gemini API for inference. Not stored by us beyond the
-  local conversation history on your device. If you fill in the optional
-  AI personalization profile (Settings), it is stored **on your device**
-  and only its contents that accompany an AI request are sent to Gemini,
-  exactly like the rest of your AI message.
+  local conversation history on your device. So the assistant can answer
+  about your finances, each message is accompanied by a **snapshot of your
+  current financial context** — your account (wallet) names and balances,
+  income and spending totals, and the names and progress of your budgets and
+  goals — which is sent to Gemini alongside the message. If you filled in the
+  optional profile (Settings → Profile), your **name, age, gender, job title
+  and stated monthly income** are also sent so replies can be tailored to you.
+  You can stop that at any time with **Settings → Privacy → "Personalize AI
+  with my profile"**, which keeps the AI working on your financial summary
+  alone. This is the only circumstance in which account names and balances
+  leave your device, it happens only when you use the AI features, and none of
+  it is used for advertising.
 - **Optional cloud-reminder data** — if you enable Cloud reminders, an
   anonymous device notification token plus your reminder time, timezone,
   and app language are sent to Google's Firebase Cloud Messaging to
   deliver reminders. No financial data is included. Off by default;
   removable at any time.
-- **Optional account identity** — if you connect your Google account
-  (Settings → Account), your Google email and basic profile (display
-  name) are processed by Google's Firebase Authentication to establish a
-  secure account identity, and a pseudonymous account identifier is
+- **Optional account identity** — if you sign in (Settings → Account),
+  you may connect your **Google account** or use **Sign in with Apple**.
+  When signing in with Google, your Google email and basic profile
+  (display name) are processed by Google's Firebase Authentication. When
+  signing in with Apple, Apple provides a secure token and (optionally)
+  your Apple ID email address, processed by Apple and then by Firebase
+  Authentication. In both cases a pseudonymous account identifier is
   created. No financial data is attached to this account. Off by default;
   you can sign out or permanently delete the account at any time.
 
@@ -52,9 +63,9 @@ rights over it.
 - We do not collect personal identifiers (name, phone, address).
 - We do not track your device's precise (GPS) location passively or in
   the background — only when you explicitly attach a location to a
-  transaction or wallet (see Permissions). If you opt into analytics, our
-  processor derives only an **approximate** country/region from your IP
-  address — see Analytics & diagnostics.
+  transaction or wallet (see Permissions). If you opt into usage analytics, our
+  processor derives an **approximate** location (city level at most) from your
+  IP address — see Usage analytics.
 - We do not use advertising SDKs, ad networks, or ad trackers.
 - We do not sell, share, or rent your data.
 
@@ -63,22 +74,42 @@ rights over it.
 - **Internet** — for AI features and optional Google Drive backup.
 - **Microphone** — only when you actively record an AI voice memo.
 - **Notifications** — for bill reminders and recurring rule alerts.
-- **Location** — optional. Only when you choose to attach a location to
-  a transaction or wallet. Stored on your device; never sent to us or
-  any third party.
+- **Location** — optional. Only when you choose to attach a location to a
+  transaction. The coordinates are stored on your device and are never sent to
+  us and never sold. To turn coordinates into a readable place name we send them
+  to your device's geocoding service (Google on Android, Apple on iOS), and if
+  you open a transaction's map we load map tiles from **OpenStreetMap** using
+  those coordinates. We request only **approximate (coarse)** location.
 
 All permissions are optional. The core finance-tracking features work
 fully offline.
 
-## Analytics & diagnostics (optional, OFF by default)
+## Crash & error diagnostics (always on)
 
-Analytics and crash diagnostics are **off by default**. Only if you explicitly
-opt in (in Settings → Privacy) do we collect **anonymous, masked** usage
-analytics and crash reports to improve the app. We use these processors:
+When Masarify crashes or hits an unexpected error, we send an **anonymous**
+crash report so we can fix it. This is the one thing we collect without asking,
+because an app that crashes on your device is a problem we cannot see or fix any
+other way. It is **not** used to track what you do in the app — that is the
+separate, optional consent described below.
+
+A crash report contains the error, where in the code it happened, and basic
+device information (model, OS version, app version). It contains **no personal
+identifiers** and **none of your financial data**: before anything leaves your
+device we strip out database statements and their values, so amounts, merchant
+and account names, notes and AI chat content can never travel inside a crash
+report. Processors: **Sentry** (**EU** region) and **Google Crashlytics**
+(processed by Google on servers **outside Egypt**, including the **United
+States**). This processing rests on our legitimate interest in keeping the app
+stable and secure, not on consent.
+
+## Usage analytics (optional, OFF by default)
+
+Usage analytics are **off by default**. Only if you explicitly opt in (in
+Settings → Privacy) do we collect **anonymous, masked** usage analytics to
+understand how the app is used and improve it. We use these processors:
 **PostHog** (product analytics and **masked session replay**, hosted on its
-**EU** infrastructure), **Sentry** (crash and error reporting, **EU** region),
-and **Google Firebase Analytics and Crashlytics** (usage analytics and crash
-diagnostics, processed by Google on servers **outside Egypt**, including the
+**EU** infrastructure) and **Google Firebase Analytics** (usage analytics,
+processed by Google on servers **outside Egypt**, including the
 **United States**). We do not collect personal identifiers, do not enable PII
 enrichment, and do not assign an advertising ID or use ad personalization. Your
 exact financial amounts, transaction details, balances, wallets, notes, and AI
@@ -108,16 +139,16 @@ even, or overspend, and a needs-versus-wants spending mix — always broad bands
 never exact figures); your **AI-feature usage** band; and **which optional
 features you've enabled** (such as app lock, cloud reminders, or backup — never
 the protected data behind them). Our analytics processor (PostHog) also derives
-an **approximate location** — your **country/region**, from your device's **IP
+an **approximate location** — **city level at most**, from your device's **IP
 address** (never a precise or GPS position) — so we can understand which regions
 use Masarify. These values are bucketed so they
 can't identify you, are never linked to your name or any identifier, and are
 only sent while analytics is enabled. You can withdraw consent at any time in
-Settings → Privacy, which stops collection immediately; clearing app data also
-resets consent to off. This processing is consent-based, and these cross-border
-transfers — to PostHog and Sentry in the **EU**, and to Google/Firebase
-**outside Egypt (including the US)** — are disclosed here in line with Egypt's
-PDPL (Law 151 of 2020).
+Settings → Privacy, which stops usage-analytics collection immediately (crash
+diagnostics above continue); clearing app data also resets consent to off. This
+processing is consent-based, and these cross-border transfers — to PostHog and
+Sentry in the **EU**, and to Google/Firebase **outside Egypt (including the
+US)** — are disclosed here in line with Egypt's PDPL (Law 151 of 2020).
 
 ## Cloud reminders (optional, OFF by default)
 
@@ -161,20 +192,31 @@ automatically.
 
 Masarify works fully without any account — by default you use the app
 anonymously and all of your data stays on your device. You may optionally
-**connect your Google account** (Settings → Account). When you do, we use
-**Google's Firebase Authentication** to establish a secure identity for
-your app installation. The data involved is limited to your **Google email
-address** and **basic profile (display name)**, which are processed by
-Google (Firebase) to authenticate you; a pseudonymous **account
-identifier** is also created. We do **not** attach your transactions,
-amounts, wallets, budgets, notes, or any other financial data to this
-account — your finances never leave your device because you signed in.
+sign in (Settings → Account) using either **Google** or **Sign in with
+Apple**.
+
+**Sign in with Google:** We use **Google's Firebase Authentication** to
+establish a secure identity. The data involved is limited to your **Google
+email address** and **basic profile (display name)**, which are processed
+by Google (Firebase) to authenticate you.
+
+**Sign in with Apple:** Apple authenticates you and provides a secure token
+and — if you do not choose to hide your email — your **Apple ID email
+address**, which is processed by Apple and then by Firebase Authentication
+to establish a secure identity. If you choose to hide your email, Apple
+provides a private relay address instead. No display name is shared unless
+you provide one.
+
+In both cases a pseudonymous **account identifier** is created. We do
+**not** attach your transactions, amounts, wallets, budgets, notes, or any
+other financial data to this account — your finances never leave your
+device because you signed in.
 
 Signing in is purely additive: it gives you a stable identity (for example
 to support future optional cloud sync) and is required for none of the
 app's features. You can **sign out** at any time, or **permanently delete
 your account** (Settings → Account → Delete account), which removes the
-Firebase identity and any associated cloud-reminder record. This identity
+Firebase identity and any associated cloud-reminder record. The Google
 sign-in is separate from the optional Google Drive backup sign-in described
 above. This processing is based on your explicit consent, and the transfer
 to Google/Firebase (on servers outside Egypt) is disclosed here in line
@@ -193,17 +235,17 @@ everything, uninstall the app or use the in-app **Clear all data** option
 (Settings). If you used Drive backup, you can delete that backup from your
 Google Drive's "App Data" management page at any time.
 
-**Deleting your account.** If you connected a Google account (see
-"Account & sign-in" above), you can permanently delete it and its
-associated data in either of two ways:
+**Deleting your account.** If you signed in — via Google or Sign in with
+Apple (see "Account & sign-in" above) — you can permanently delete your
+account and its associated data in either of two ways:
 
 - **In the app:** Settings → Account → Delete account. This immediately and
-  permanently deletes the account identity held by Firebase (your Google
-  email, display name, and account identifier) and the associated
+  permanently deletes the account identity held by Firebase (your email,
+  display name or relay address, and account identifier) and the associated
   cloud-reminder record. Your on-device finances are not affected.
 - **By request, no app needed:** email omarwalidghazal@gmail.com from the
-  Google address you signed in with, and we will delete your account and
-  any associated data within 30 days.
+  address associated with the account you signed in with, and we will
+  delete your account and any associated data within 30 days.
 
 After deletion we keep no account data, aside from copies Google/Firebase
 may hold transiently in their own backups, which expire on Google's
