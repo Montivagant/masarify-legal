@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-07-06_
+_Last updated: 2026-09-05_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -28,14 +28,25 @@ rights over it.
   the backup at any time from your Drive's "App Data" management page.
 - **Voice recordings** (optional, for AI voice memo) — sent transiently
   to Google's Gemini API for transcription, then discarded. Not stored
-  by us.
+  by us. So the model can turn "paid the rent" into the right transaction, the
+  recording is accompanied by a **snapshot of the things it may need to match
+  against**: your **category names** (including any you created yourself), your
+  **account (wallet) names**, your **savings goals and the keywords you gave
+  them**, your **budgets and the keywords you gave them**, and your **active
+  bills and subscriptions with their amounts, currencies and how often they
+  repeat**. Goal and budget keywords are free text you wrote, so treat them the
+  way you would any note you would not want sent off-device — you can edit or
+  remove them at any time in Goals and Budgets, and if you never use the voice
+  feature none of this is sent at all.
 - **AI chat messages** (optional, for AI advisor) — sent transiently
   to Google's Gemini API for inference. Not stored by us beyond the
   local conversation history on your device. So the assistant can answer
   about your finances, each message is accompanied by a **snapshot of your
-  current financial context** — your account (wallet) names and balances,
-  income and spending totals, and the names and progress of your budgets and
-  goals — which is sent to Gemini alongside the message. If you filled in the
+  current financial context** — your account (wallet) names, types and balances,
+  income and spending totals, the names and progress of your budgets and goals,
+  your top spending categories, and your **category names** (including any you
+  created yourself, so the assistant can file a spend correctly) — which is sent
+  to Gemini alongside the message. If you filled in the
   optional profile (Settings → Profile), your **name, age, gender, job title
   and stated monthly income** are also sent so replies can be tailored to you.
   You can stop that at any time with **Settings → Privacy → "Personalize AI
@@ -43,6 +54,19 @@ rights over it.
   alone. This is the only circumstance in which account names and balances
   leave your device, it happens only when you use the AI features, and none of
   it is used for advertising.
+- **How AI requests reach Gemini** — they do not go to Google directly from your
+  phone. Every AI request (chat, voice and automatic categorisation) is sent
+  first to **our own server function hosted on Google Firebase in the European
+  Union**, which holds the Gemini key, enforces a per-user daily fair-use limit,
+  and then forwards the request to **Google's Gemini API**. We do not store the
+  content of your request or the reply on that server; what we do keep is a
+  **counter** of how many AI requests your app installation has made today, so
+  the limit can be enforced and the service protected from abuse.
+- **An anonymous AI identity** — the first time you use an AI feature, the app
+  signs in to Firebase **anonymously** to attach that fair-use counter to your
+  installation. This happens without you signing in to anything, creates a
+  random identifier tied to your app installation and not to your name or email,
+  and is deleted when you delete the app's data or your account.
 - **Optional cloud-reminder data** — if you enable Cloud reminders, an
   anonymous device notification token plus your reminder time, timezone,
   and app language are sent to Google's Firebase Cloud Messaging to
@@ -130,7 +154,9 @@ and **currency** (so we understand which markets use Masarify) and whether you'r
 on the **free or Pro** plan; a **spending range** (a broad bracket of your
 monthly spending, plus a representative bracket value — never your exact totals)
 and your **most-used spending category** (only for the app's built-in categories
-— the names of any categories you create yourself are never sent); **how actively
+— the names of any categories you create yourself are never sent **to our
+analytics processors**; the AI section above describes separately what the
+AI features send when you use them); **how actively
 you use the app** (for example how many wallets, goals, or custom categories you
 keep and a broad band of how many transactions you log) and **budget usage** (how
 many budgets you keep and their periods — never their names or amounts); a few
