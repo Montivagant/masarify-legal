@@ -267,16 +267,29 @@ account and its associated data in either of two ways:
 
 - **In the app:** Settings → Account → Delete account. This immediately and
   permanently deletes the account identity held by Firebase (your email,
-  display name or relay address, and account identifier) and the associated
-  cloud-reminder record. Your on-device finances are not affected.
+  display name or relay address, and account identifier) together with
+  everything on our servers that is linked to it: your **cloud-reminder and
+  bill-reminder registrations**, your **AI usage counters**, and your
+  **founding-member record** if you have one. Your on-device finances are not
+  affected. If any part of that server-side clean-up does not complete
+  immediately, the app tells you so rather than reporting success, and a daily
+  job finishes it within 24 hours.
 - **By request, no app needed:** email omarwalidghazal@gmail.com from the
   address associated with the account you signed in with, and we will
   delete your account and any associated data within 30 days.
 
 After deletion we keep no account data, aside from copies Google/Firebase
 may hold transiently in their own backups, which expire on Google's
-standard schedule. In-app feedback you have sent can likewise be deleted on
-request to the same address.
+standard schedule.
+
+Two things are deliberate exceptions, and we would rather name them than let
+you assume otherwise:
+
+- **In-app feedback** is stored without any link to your account — that is what
+  makes it anonymous — so we cannot find your messages in order to delete them
+  automatically. Email the address above and we will remove them.
+- **A Google Drive backup** lives in your own Drive, not ours. Delete it from
+  Drive's "App Data" management page whenever you like.
 
 ## Children's privacy
 
