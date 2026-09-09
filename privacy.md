@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-09-05_
+_Last updated: 2026-09-09_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -121,20 +121,17 @@ device information (model, OS version, app version). It contains **no personal
 identifiers** and **none of your financial data**: before anything leaves your
 device we strip out database statements and their values, so amounts, merchant
 and account names, notes and AI chat content can never travel inside a crash
-report. Processors: **Sentry** (**EU** region) and **Google Crashlytics**
-(processed by Google on servers **outside Egypt**, including the **United
-States**). This processing rests on our legitimate interest in keeping the app
-stable and secure, not on consent.
+report. Processor: **Sentry**, in the **EU** — one processor, and no transfer
+outside the EU for crash data. This processing rests on our legitimate interest
+in keeping the app stable and secure, not on consent.
 
 ## Usage analytics (optional, OFF by default)
 
 Usage analytics are **off by default**. Only if you explicitly opt in (in
 Settings → Privacy) do we collect **anonymous, masked** usage analytics to
-understand how the app is used and improve it. We use these processors:
+understand how the app is used and improve it. We use one processor:
 **PostHog** (product analytics and **masked session replay**, hosted on its
-**EU** infrastructure) and **Google Firebase Analytics** (usage analytics,
-processed by Google on servers **outside Egypt**, including the
-**United States**). We do not collect personal identifiers, do not enable PII
+**EU** infrastructure). We do not collect personal identifiers, do not enable PII
 enrichment, and do not assign an advertising ID or use ad personalization. Your
 exact financial amounts, transaction details, balances, wallets, notes, and AI
 chat content are **never** sent — sensitive fields are filtered out before any
@@ -172,9 +169,8 @@ can't identify you, are never linked to your name or any identifier, and are
 only sent while analytics is enabled. You can withdraw consent at any time in
 Settings → Privacy, which stops usage-analytics collection immediately (crash
 diagnostics above continue); clearing app data also resets consent to off. This
-processing is consent-based, and these cross-border transfers — to PostHog and
-Sentry in the **EU**, and to Google/Firebase **outside Egypt (including the
-US)** — are disclosed here in line with Egypt's PDPL (Law 151 of 2020).
+processing is consent-based, and this cross-border transfer — to PostHog in
+the **EU** — is disclosed here in line with Egypt's PDPL (Law 151 of 2020).
 
 ## Cloud reminders (optional, OFF by default)
 
