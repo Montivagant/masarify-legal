@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-09-09_
+_Last updated: 2026-09-11_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -129,10 +129,21 @@ in keeping the app stable and secure, not on consent.
 
 Usage analytics are **off by default**. Only if you explicitly opt in (in
 Settings → Privacy) do we collect **anonymous, masked** usage analytics to
-understand how the app is used and improve it. We use one processor:
-**PostHog** (product analytics and **masked session replay**, hosted on its
-**EU** infrastructure). We do not collect personal identifiers, do not enable PII
-enrichment, and do not assign an advertising ID or use ad personalization. Your
+understand how the app is used and improve it.
+
+We are in the middle of **moving this processing in-house**, so during the
+transition the same anonymous events are recorded in two places: **PostHog**
+(product analytics and **masked session replay**, hosted on its **EU**
+infrastructure) and **our own servers**, which run on **Google Cloud in the
+European Union** (Belgium) and are operated by us alone. Moving in-house means
+**one fewer company** receives your usage data, not more data: what our own
+servers record is the same anonymous, bucketed information described below.
+When the move is complete PostHog will be removed, and **masked session replay
+will end with it** — our own collection records no screen frames of any kind.
+
+We do not collect personal identifiers, do not link usage analytics to your
+Masarify account, do not enable PII enrichment, and do not assign an
+advertising ID or use ad personalization. Your
 exact financial amounts, transaction details, balances, wallets, notes, and AI
 chat content are **never** sent — sensitive fields are filtered out before any
 data leaves your device. The optional **session replay** is fully **masked**:
@@ -164,13 +175,29 @@ features you've enabled** (such as app lock, cloud reminders, or backup — neve
 the protected data behind them). Our analytics processor (PostHog) also derives
 an **approximate location** — **city level at most**, from your device's **IP
 address** (never a precise or GPS position) — so we can understand which regions
-use Masarify. These values are bucketed so they
+use Masarify. Our own servers do the same: your IP address is used **in memory,
+for that one lookup**, to derive the same **city-level at most** approximation,
+and is **never stored** — not in the analytics database, not in any queue or
+buffer along the way. The lookup uses an offline database from **DB-IP**
+(IP Geolocation by [DB-IP](https://db-ip.com)) held on our own servers, so your
+address is not sent to a geolocation service either. A **postal code is not
+collected** by our own servers at all.
+
+Our own collection additionally records **how long each screen was open**, a
+**diagnostic measure** of when events could not be delivered promptly, and an
+**error report** when something inside the app fails — the error's type and a
+redacted message, with database statements and their values stripped on your
+device before anything is sent, exactly as for crash diagnostics above.
+
+These values are bucketed so they
 can't identify you, are never linked to your name or any identifier, and are
-only sent while analytics is enabled. You can withdraw consent at any time in
+only sent while analytics is enabled. Analytics events are kept for at most
+**14 months** and are then deleted automatically. You can withdraw consent at any time in
 Settings → Privacy, which stops usage-analytics collection immediately (crash
 diagnostics above continue); clearing app data also resets consent to off. This
-processing is consent-based, and this cross-border transfer — to PostHog in
-the **EU** — is disclosed here in line with Egypt's PDPL (Law 151 of 2020).
+processing is consent-based, and these cross-border transfers — to PostHog in
+the **EU**, and to our own servers on Google Cloud in the **EU** — are
+disclosed here in line with Egypt's PDPL (Law 151 of 2020).
 
 ## Cloud reminders (optional, OFF by default)
 
