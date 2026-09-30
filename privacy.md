@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-09-29_
+_Last updated: 2026-09-30_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -70,17 +70,19 @@ rights over it.
   **counter** of how many AI requests your app installation has made today, so
   the limit can be enforced and the service protected from abuse.
 - **An anonymous service identity** — the first time you use an optional
-  server-backed feature (AI, cloud reminders, feedback, subscription
-  attribution, or consented first-party analytics), the app may sign in to
-  Firebase **anonymously**. This authenticates requests, applies abuse limits
+  server-backed feature (AI, cloud reminders, feedback, a subscription
+  purchase or restore, or consented first-party analytics), the app may sign in
+  to Firebase **anonymously**. This authenticates requests, applies abuse limits
   and, where applicable, attaches the relevant record to this installation.
   It happens without you signing in to a named account and creates a random
-  Firebase identifier not based on your name or email. Analytics does not store
-  that raw identifier with events; billing keeps any ownership mapping only in
-  its separate registry. When you use Clear all data, the app requests deletion
-  of an installation-only anonymous identity and its server records; named
-  accounts remain available until you use Delete account. You can contact us
-  below if a network failure prevents that request from completing.
+  Firebase identifier not based on your name or email. That raw identifier is
+  never stored with analytics events; if you opt into usage analytics, events
+  carry a **keyed code derived from it** instead (see Usage analytics). When
+  you use Clear all data, the app requests deletion of this installation's
+  analytics history and of an installation-only anonymous identity and its
+  server records; named accounts remain available until you use Delete
+  account. You can contact us below if a network failure prevents that
+  request from completing.
 - **Required app/device integrity attestation** — on launch, Firebase App Check
   asks Google Play Integrity on Android or Apple App Attest on iOS to provide
   an integrity token plus standard app/SDK and device-class metadata. This is a
@@ -108,8 +110,9 @@ rights over it.
 ## What we do NOT collect
 
 - Usage analytics do not collect your name, email, phone number, postal address,
-  account UID or store billing identifier. Optional sign-in and feedback collect
-  only the identity fields described above.
+  raw account UID or store billing identifier. If you opt in, they are linked to
+  a keyed code derived from your app-account ID (see Usage analytics). Optional
+  sign-in and feedback collect only the identity fields described above.
 - We do not track your device's precise (GPS) location passively or in
   the background — only when you explicitly attach a location to a
   transaction or wallet (see Permissions). If you opt into usage analytics, our
@@ -136,15 +139,17 @@ fully offline.
 ## Crash & error diagnostics (optional, OFF by default)
 
 Crash diagnostics are separate from usage analytics and are **off by default**.
-If you enable them in Settings → Privacy, Masarify sends crash reports to
+If you enable them — on the consent screen when you set up the app, in the
+home-screen prompt, or in Settings → Privacy — Masarify sends crash reports to
 **Sentry in the EU** so we can fix reliability problems. Turning analytics on
 does not turn crash diagnostics on, and either choice can be changed
 independently.
 
 A crash report contains the exception type, the code location and limited app
 and operating-system context. Performance tracing and profiling are disabled.
-Before sending, the app removes exception messages, database statements and
-values, and keeps at most normalized navigation breadcrumbs. Reports must not
+Before sending, the app removes database statements and their values, masks
+digit sequences, Arabic text and email addresses in exception messages, and
+keeps only a limited set of breadcrumbs, with navigation routes normalized. Reports must not
 contain amounts, merchant or account names, notes, AI chat content, your name,
 email, advertising identifier, or an analytics installation identifier. This
 processing is based on your explicit consent.
@@ -153,11 +158,14 @@ processing is based on your explicit consent.
 
 Usage analytics are **off by default**. Only if you explicitly opt in do we
 collect **pseudonymous** product analytics to understand feature adoption,
-quality and subscription conversion. We use a random identifier stored by this
-installation of Masarify. It is not your advertising ID, name, email, Firebase
-account ID, subscription billing ID or store account. Because it is stable
-within an installation, events can be grouped into sessions and funnels; it is
-therefore pseudonymous, not anonymous.
+quality and subscription conversion. Events carry a random identifier stored
+by this installation of Masarify and a **keyed account code**: a one-way
+cryptographic code (HMAC) that our server derives from your app's Firebase
+account ID. Neither is your advertising ID, name, email or store account, and
+the raw account ID is never stored with analytics. Because both are stable,
+events can be grouped into sessions and funnels and linked to the same app
+account's subscription record (see Subscriptions); the data is therefore
+pseudonymous, not anonymous, and it is linked to your app account.
 
 Collected fields are limited by a closed schema. They include canonical feature
 events and screen names; session and event IDs; app version, platform, locale,
@@ -192,21 +200,23 @@ and session replay are disabled; no screen frames are collected. PostHog will
 be removed only after the documented parity and rollback gates pass, so that the
 privacy migration does not silently destroy operational visibility.
 
-Firebase anonymous authentication protects the ingest callable, but its UID is
-used only in memory to enforce abuse limits and is transformed with a
-purpose-separated HMAC. We do not store or log that UID with analytics, and we do not join the
-analytics installation ID to the account or billing registry. These safeguards
-prevent us from using product analytics to determine which named person or store
-account performed an action. Persistent analytics attributes contain only the
-coarse `free` or `pro` tier; the limited purchase-funnel product key and outcome
-described above remain pseudonymous and are not joined to the billing owner.
-Subscription ownership is handled separately as described below.
+Firebase authentication protects the ingest callable. Our server derives the
+keyed account code from the authenticated account ID, which is used only in
+memory and never stored or logged with analytics. We use the code to answer
+product questions — which features subscribers use before and after
+subscribing, whether the paywall works, why people cancel — never for
+advertising, and never combined with data from other companies. The code is
+not sent to PostHog. We do not add your name, email or store account to
+analytics. Broad income, spending, savings and budget-health brackets are kept
+only where the law permits; our server can drop them without an app update.
 
 Raw analytics events are kept for at most **14 months** and then deleted
 automatically. You can stop future collection at any time, clear unsent events,
 or use **Settings → Privacy → Delete analytics history** to request deletion
-for the current installation. Clearing app data rotates the identifier and
-resets consent to off. Deleting analytics does not cancel a store subscription
+for the current installation. Clearing app data also requests deletion of the
+current installation's analytics history, gives the installation a new
+identifier, and resets consent to off. Deleting your account deletes analytics
+linked to its keyed account code. Deleting analytics does not cancel a store subscription
 or delete an optional Masarify account because those systems are deliberately
 separate. After deletion, we retain only a keyed, non-reversible tombstone for
 at most 14 months—without the raw installation ID or any events—so a restored
@@ -289,19 +299,23 @@ with Egypt's Personal Data Protection Law (Law 151 of 2020).
 
 Masarify offers a Pro subscription unlocking advanced features. Billing
 is handled by Google Play (on Android) or the Apple App Store (on iOS).
-We do not see your payment-card or bank details. To validate entitlement and
-restore purchases, the app sends the store an opaque, store-specific billing
-identifier. Google receives a 64-character keyed hash; Apple receives a random
-UUID. Our billing registry stores the mapping between that opaque identifier
-and the Firebase account used for the purchase. On Android, verified Google
-Play API and real-time notification records may also contain the product,
-purchase token, status and renewal timestamps. On iOS, the UUID is sent to
-Apple so a future verified server-notification path can return it, but Masarify
-does not currently ingest App Store Server Notifications and therefore does not
-claim an independently verified iOS owner ledger. We never fill that gap by
-trusting client-provided subscription status. The billing registry is separate
-from product analytics and is used for app functionality, fraud prevention,
-support and account deletion — not advertising.
+We do not see your payment-card or bank details. When you subscribe, the app
+sends the store an opaque, store-specific billing identifier: Google receives a
+64-character keyed hash; Apple receives a random UUID. Our billing registry
+stores the mapping between that identifier and the Firebase account used for
+the purchase. When you buy or restore, the app also sends the store's proof of
+purchase to our server, which verifies it with Google or Apple and records
+which app account holds the subscription. We also receive the stores' own
+subscription notifications (Google Play real-time notifications and Apple App
+Store Server Notifications). These records hold the product and plan or offer,
+the purchase token or transaction ID, status, region, and renewal, expiry,
+cancellation and refund dates — and, where the store provides it, the reason
+category you chose when cancelling, never any text you typed. We never fill a
+gap by trusting subscription status the app reports about itself. Subscription
+records are used for app functionality, fraud prevention, support and account
+deletion, and — only if you opted into usage analytics — linked through the
+keyed account code to understand how subscribers use Masarify. Never for
+advertising.
 
 ## Data retention and deletion
 
@@ -319,8 +333,10 @@ account and its associated data in either of two ways:
   display name or relay address, and account identifier) together with
   everything on our servers that is linked to it: your **cloud-reminder and
   bill-reminder registrations**, your **AI usage counters**, and your
-  **founding-member and billing-identity records** if you have them. Your on-device finances are not
-  affected. If any part of that server-side clean-up does not complete
+  **founding-member, billing-identity and subscription records** if you have
+  them, and **usage analytics linked to your keyed account code**. This does not
+  cancel a store subscription; manage that in Google Play or the App Store.
+  Your on-device finances are not affected. If any part of that server-side clean-up does not complete
   immediately, the app tells you so rather than reporting success, and a daily
   job finishes it within 24 hours.
 - **By request, no app needed:** email omarwalidghazal@gmail.com from the
@@ -339,10 +355,11 @@ you assume otherwise:
   automatically. Email the address above and we will remove them.
 - **A Google Drive backup** lives in your own Drive, not ours. Delete it from
   Drive's "App Data" management page whenever you like.
-- **Pseudonymous analytics** is deliberately not linked to your account, so
-  account deletion cannot identify it. Use **Delete analytics history** before
-  clearing app data or uninstalling if you also want the current installation's
-  analytics erased.
+- **Older, installation-only analytics** — analytics collected before you
+  accepted this version of the policy is tied only to an installation
+  identifier, not your account, so account deletion cannot find it. Use
+  **Delete analytics history** (or Clear all data) on that installation if you
+  also want it erased.
 
 ## Children's privacy
 
