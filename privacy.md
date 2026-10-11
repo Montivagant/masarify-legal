@@ -6,7 +6,7 @@ permalink: /privacy.html
 
 # Privacy Policy
 
-_Last updated: 2026-09-30_
+_Last updated: 2026-10-11_
 
 Masarify ("we", "our", or "the app") is a personal finance tracker. This
 policy describes what data the app collects, how it is used, and your
@@ -36,13 +36,14 @@ rights over it.
   rent" into the right transaction, the
   recording is accompanied by a **snapshot of the things it may need to match
   against**: your **category names** (including any you created yourself), your
-  **account (wallet) names**, your **savings goals and the keywords you gave
-  them**, your **budgets and the keywords you gave them**, and your **active
+  **account (wallet) names**, the **names of your savings goals** (the keywords
+  you gave a goal stay on your device and are matched there, after the reply
+  arrives), your **budgets and the keywords you gave them**, and your **active
   bills and subscriptions with their amounts, currencies and how often they
-  repeat**. Goal and budget keywords are free text you wrote, so treat them the
-  way you would any note you would not want sent off-device — you can edit or
-  remove them at any time in Goals and Budgets, and if you never use the voice
-  feature none of this is sent at all.
+  repeat**. Budget keywords are free text you wrote, so treat them the way you
+  would any note you would not want sent off-device — you can edit or remove
+  them at any time in Budgets, and if you never use the voice feature none of
+  this is sent at all.
 - **AI chat messages** (optional, for AI advisor) — sent to Google's Gemini API
   for inference. Masarify does not store them on its server; the conversation
   history remains locally on your device. The same Google retention, service-
@@ -71,9 +72,10 @@ rights over it.
   the limit can be enforced and the service protected from abuse.
 - **An anonymous service identity** — the first time you use an optional
   server-backed feature (AI, cloud reminders, feedback, a subscription
-  purchase or restore, or consented first-party analytics), the app may sign in
-  to Firebase **anonymously**. This authenticates requests, applies abuse limits
-  and, where applicable, attaches the relevant record to this installation.
+  purchase or restore, consented first-party analytics, or consented crash
+  diagnostics), the app may sign in to Firebase **anonymously**. This
+  authenticates requests, applies abuse limits and, where applicable,
+  attaches the relevant record to this installation.
   It happens without you signing in to a named account and creates a random
   Firebase identifier not based on your name or email. That raw identifier is
   never stored with analytics events; if you opt into usage analytics, events
@@ -139,20 +141,43 @@ fully offline.
 ## Crash & error diagnostics (optional, OFF by default)
 
 Crash diagnostics are separate from usage analytics and are **off by default**.
-If you enable them — on the consent screen when you set up the app, in the
-home-screen prompt, or in Settings → Privacy — Masarify sends crash reports to
-**Sentry in the EU** so we can fix reliability problems. Turning analytics on
-does not turn crash diagnostics on, and either choice can be changed
-independently.
+When the app hits an error or crashes, a report is first **stored on your
+device**, for at most 14 days. It leaves the device only if you enable crash
+diagnostics — on the consent screen when you set up the app, in the
+home-screen prompt, or in Settings → Privacy — and then goes only to **our own
+servers on Google Cloud in the European Union**. No third-party crash or
+analytics service receives it. If you never enable diagnostics, stored reports
+are deleted on the device without being sent, and turning diagnostics off
+deletes the reports that have not been sent yet. Turning analytics on does not
+turn crash diagnostics on, and either choice can be changed independently.
 
-A crash report contains the exception type, the code location and limited app
-and operating-system context. Performance tracing and profiling are disabled.
-Before sending, the app removes database statements and their values, masks
-digit sequences, Arabic text and email addresses in exception messages, and
-keeps only a limited set of breadcrumbs, with navigation routes normalized. Reports must not
-contain amounts, merchant or account names, notes, AI chat content, your name,
-email, advertising identifier, or an analytics installation identifier. This
-processing is based on your explicit consent.
+A crash report contains the exception type, the code location (the stack
+trace) and limited app and device context: app version and build, operating
+system version, device manufacturer and model, processor type, Android SDK
+level, a broad memory band, locale and timezone offset. On Android the app may
+also read the system's own record of why its previous run ended (for example a
+freeze or a native crash) and report it the same way. Diagnostics also include
+**session health** records — when a session started and ended, how long the
+app was in the foreground, how many errors occurred and whether it closed
+normally or crashed — so that we can measure how often the app crashes.
+Performance tracing and profiling are not collected.
+
+Before a report is stored, the app removes database statements and their
+values, masks digit sequences, Arabic text and email addresses in error
+messages, and keeps only a limited set of breadcrumbs: normalized screen routes
+and fixed action names. Reports must not contain amounts, merchant or account
+names, notes, AI chat content, your name, email or advertising identifier.
+Each report carries this installation's random **installation identifier**
+(the same one usage analytics uses), so that repeated crashes on one device are
+counted once; it is not your advertising ID, name, email or store account, and
+crash reports do not carry the keyed account code described under Usage
+analytics. To deliver reports the app signs in to Firebase anonymously (see
+"An anonymous service identity" above).
+
+Diagnostics received by our servers are kept for at most **14 months** and
+then deleted automatically. **Delete analytics history** and **Clear all data**
+also request deletion of the diagnostics sent under this installation
+identifier. This processing is based on your explicit consent.
 
 ## Usage analytics (optional, OFF by default)
 
@@ -190,15 +215,10 @@ request IP using an offline **DB-IP** database (IP Geolocation by
 **never stored** or sent to a geolocation service. We collect no postal code and
 no precise/GPS location for analytics.
 
-Analytics are sent to our own servers on **Google Cloud in the European Union**.
-During a measured migration period, the same allowlisted event names and
-sanitized app-supplied properties are also sent to **PostHog's EU service** so
-we can compare loss and counts before removing it. Its native SDK may add
-standard app/device context, including device model and operating-system
-version. PostHog lifecycle autocapture, feature flags, surveys, error capture
-and session replay are disabled; no screen frames are collected. PostHog will
-be removed only after the documented parity and rollback gates pass, so that the
-privacy migration does not silently destroy operational visibility.
+Analytics are sent only to our own servers on **Google Cloud in the European
+Union**; no third-party analytics service receives them. Events wait on your
+device, for at most 7 days, until they can be delivered. No screen frames or
+session recordings are collected.
 
 Firebase authentication protects the ingest callable. Our server derives the
 keyed account code from the authenticated account ID, which is used only in
@@ -206,8 +226,8 @@ memory and never stored or logged with analytics. We use the code to answer
 product questions — which features subscribers use before and after
 subscribing, whether the paywall works, why people cancel — never for
 advertising, and never combined with data from other companies. The code is
-not sent to PostHog. We do not add your name, email or store account to
-analytics. Broad income, spending, savings and budget-health brackets are kept
+never shared with a third party. We do not add your name, email or store
+account to analytics. Broad income, spending, savings and budget-health brackets are kept
 only where the law permits; our server can drop them without an app update.
 
 Raw analytics events are kept for at most **14 months** and then deleted
